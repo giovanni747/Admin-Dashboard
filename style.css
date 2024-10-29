@@ -1,0 +1,389 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #0f172a;
+}
+:root{
+    --secondaryText-size: 13px;
+    --secondaryColor: #64748b;
+    --edgebackgroundColor: #020617;
+    --backgroundBox: #1e293b;
+}
+.container {
+    text-align: center;
+    display: grid;
+    grid-template-columns: .6fr 1.7fr .6fr;
+    height: 100vh; /* Set height to full viewport height */
+   
+}
+.header {
+    background-color: var(--edgebackgroundColor);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column: 2 / 4;
+    border-bottom: 1px solid #1e293b;
+    margin-bottom: 30px;
+    height: 70px;
+}
+.profile-info{
+    margin: 10px 13px;
+    display: flex;
+    justify-self:flex-start;
+    gap: 1px;
+}
+.userpic {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.userpic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image fills the container while maintaining aspect ratio */
+}
+.name-bio,
+.name-bio > p
+{   
+    margin-top: 3px;
+    margin-left: 6px;
+    text-align: left;
+    font-size: var(--secondaryText-size);
+    color: var(--secondaryColor);
+
+}
+.name-bio p:first-child {
+    /* Add your styles here */
+    font-weight: bolder;
+    font-size: 15px;
+    color: white;
+}
+.userIcon {
+    display: flex;
+    gap: 19px;
+    align-items: center;
+    justify-self:flex-end;
+}
+
+.SEARCH{
+    width: 220px;
+    height: 25px;
+    border-radius: 9px;
+    background-color: var(--backgroundBox);
+    padding: 5px;
+    display: flex;  
+    align-items: center;
+}
+.SEARCH input {
+    width: 100%; /* Ensures input takes full width of the container */
+    height: 100%; /* Input will match the height of .SEARCH */
+    padding: 0 10px; /* Horizontal padding for the text inside the input */
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: var(--secondaryText-size);
+}
+.SEARCH input::placeholder {
+    color: var(--secondaryColor) ;
+    opacity: 0.8; 
+}
+.functions{
+    display: flex;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background-color:  var(--backgroundBox);
+    margin-right: 15px;
+    align-items: center;
+    color: #fbfcfe;
+}
+
+.sidebar {
+    /* background-color: var(--edgebackgroundColor); */
+    grid-column: 1;
+    grid-row: 1 / 4;
+    display: grid;
+    gap: 0;
+    /* width: 100%;  */
+    border-right:  1px solid #1e293b;
+    min-height: 100vh; /* Ensures sidebar covers full height */
+}
+.logo{
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #1e293b;
+    padding-left: 15px;
+    height: 71px;
+    padding: 0 1rem;
+    box-sizing: border-box;
+    justify-content: flex-start;
+    background-color: var(--edgebackgroundColor);
+}
+.logo p{
+    color: white;
+    font-size: 1rem;
+    font-weight: 800;
+}
+.ima-logo{
+    width: 50px;
+    height: 40px;
+    flex-shrink: 0; /* Prevents shrinking when viewport shrinks */
+}
+.ima-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Maintains aspect ratio and scales image to fit */
+}
+.sidebar ul {
+    list-style-type: none; /* Removes bullet points */
+    padding-left: 0 px; /* Removes default padding */
+}
+
+.sidebar li {
+    padding: 10px 0; /* Adds padding for better spacing */
+}
+.home-mn{
+    margin-top: 0;
+    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-self: start;
+    text-align: left;
+}
+
+.Settings{
+    padding-left: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-self: start;
+    text-align: left;
+}
+.home-mn p,
+.Settings p{
+    color: #334155;
+    font-size: 14px;
+
+}
+.home-mn li,
+.Settings li
+ {  
+    font-family: monospace;
+    position: relative;
+    color: #FFFF;
+    font-size: 20px;
+    display: flex; 
+    align-items: center; /* Centers icon and text vertically */
+    padding: 10px  10px; /* Adds padding for better spacing */
+    font-size: 20px;
+    cursor: pointer;
+    box-sizing: border-box;
+    transition: 0.5s;
+
+}
+.home-mn ul li:hover,
+.Settings ul li:hover
+ {  
+    color: #111;
+}
+.home-mn ul li:before,
+.Settings ul li:before
+ {  
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #3fff00 ;
+    transform: scaleY(0);
+    transition: transform 0.5s;
+    transform-origin: bottom;
+    z-index: -1;
+}
+.home-mn ul li:hover::before,
+.Settings ul li:hover::before{
+    transform: scaleY(1);
+    transition: transform 0.5s;
+    transform-origin: top;
+}
+.home-mn ul li:after,
+.Settings ul li:after
+ {  
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #3fff00 ;
+    transform: scaleY(0);
+    transition: transform 0.5s;
+    transform-origin: bottom;
+    z-index: -2;
+    filter: blur(40px);
+}
+.home-mn ul li:hover::after,
+.Settings ul li:hover::after{
+    transform: scaleY(1);
+    transition: transform 0.5s;
+    transform-origin: top;
+}
+
+
+.article {
+    margin-left: 20px;
+    margin-right: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 15px;
+    grid-column: 2 / 3;
+    flex: 1;
+}
+.article p {
+    font-size: 18px;
+    font-family: sans-serif;
+    text-align: left;
+}
+/* .article .card {
+    background-color: #FFFFFF;
+    color: black;
+    text-align: center;
+    height: 200px;
+    border-radius: 5%;
+    padding: 10px;
+} */
+.card p {
+    color: #475569;
+    font-weight: normal;
+    font-size: 14px;
+
+}
+.card .title {
+    font-size: 18px;
+    text-align: left;
+    font-weight: 600;
+    color: #94a3b8;
+    
+}
+.addon{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 15px;
+    grid-column: 3;
+}
+.addon > div{
+    background-color:#020617;
+    width: 270px;
+    height: 300px;
+    border-radius: 5%;
+    margin-right: 20px;
+}
+.trend > div ,
+.announcements > div
+{
+    display: flex;
+    flex-direction: row;
+    margin: 10px;
+    padding: 10px;
+    border-bottom: 1px solid #1e293b; 
+}
+.trend > div:last-child ,
+.announcements > div:last-child
+{
+    border-bottom: none; 
+}
+.announcements > div{
+    display: flex;
+    flex-direction: column;
+    color: #94a3b8;
+    text-align: left;
+    font-size: 12px;
+
+}
+.announcements > div p{
+    color: white;
+    text-align: left;
+    font-weight: 800;
+    font-size: 14px;
+}
+.profilePIC {
+    background-color: #334155;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    overflow: hidden; 
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+}
+
+.profilePIC img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+}
+.suggestedInfo{
+    display: flex;
+    flex-direction: column;
+    color: #0f172a;
+    display: flex;
+    justify-content: center;
+    font-size: 13px;
+    color: #94a3b8;
+    text-align: left;
+    font-family: monospace;
+
+}
+.suggestedInfo p{
+    margin-bottom: 4px;
+    text-align: left;
+    font-size: 18px;
+    color: #f1f5f9;
+    font-weight: 600;
+    font-family: monospace;
+}
+.card{
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding: 20px 10px;
+    user-select:none;
+    max-width: 300px;
+    border: 1px solid #ffffff22;
+    background-color: #282c34;
+    background: linear-gradient(0deg, rgba(40,44,52,1) 0%, rgba(17,0,32,.5) 100%);
+    box-shadow: 0 7px 20px 5px #00000088;
+    border-radius: .7rem;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    overflow: hidden;
+    transition: .5s all;
+    ::before{
+      position: fixed;
+      content: "";
+      box-shadow: 0 0 100px 40px #ffffff08;
+      top: -10%;
+      left: -100%;
+      transform: rotate(-45deg);
+      height: 60rem;
+      transition: .7s all;
+    }
+    &:hover{
+      border: 1px solid #ffffff44;
+      box-shadow: 0 7px 50px 10px #000000aa;
+      transform: scale(1.015);
+      filter: brightness(1.3);
+      ::before{
+        filter: brightness(.5);
+        top: -100%;
+        left: 200%;
+      }
+    }
+}
